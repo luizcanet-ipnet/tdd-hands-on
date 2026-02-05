@@ -2,8 +2,11 @@
 
 ## Objetivo
 
-O objetivo deste hands-on é aprender e praticar os fundamentos do TDD (Test-Driven Development). Para isso, vamos criar um aplicativo para validação de CPF simples de acordo com a seguinte História de Usuário:
+O objetivo deste hands-on é aprender e praticar os fundamentos do TDD
+(Test-Driven Development). Para isso, vamos criar um aplicativo para validação
+de CPF simples de acordo com a seguinte História de Usuário:
 
+## História de Usuário
 Como um usuário, eu quero validar um CPF para saber se ele é válido ou não.
 
 ## Regras de Validação de CPF
