@@ -12,9 +12,24 @@ Como um usuário, eu quero validar um CPF para saber se ele é válido ou não.
 2. O CPF não pode conter todos os dígitos iguais.
 3. O CPF deve ter um dígito verificador válido.
 
-## Testes
+## Cenários de Testes
 
-1. Teste de CPF inválido (11 dígitos diferentes).
-2. Teste de CPF inválido (todos os dígitos iguais).
-3. Teste de CPF inválido (dígito verificador inválido).
-4. Teste de CPF válido.
+### 1. Teste de CPF inválido (11 dígitos diferentes)
+- **Dado** que o usuário insere o CPF "123.456.789-10"
+- **Quando** a validação é executada
+- **Então** o sistema deve informar que o CPF é inválido
+
+### 2. Teste de CPF inválido (todos os dígitos iguais)
+- **Dado** que o usuário insere o CPF "111.111.111-11"
+- **Quando** a validação é executada
+- **Então** o sistema deve informar que o CPF é inválido
+
+### 3. Teste de CPF inválido (dígito verificador inválido)
+- **Dado** que o usuário insere o CPF "123.456.789-09"
+- **Quando** a validação é executada
+- **Então** o sistema deve informar que o CPF é inválido
+
+### 4. Teste de CPF válido
+- **Dado** que o usuário insere o CPF "942.222.840-02"
+- **Quando** a validação é executada
+- **Então** o sistema deve informar que o CPF é válido
