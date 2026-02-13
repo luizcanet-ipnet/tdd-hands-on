@@ -34,3 +34,20 @@ test("Deve lançar um erro de validação de CPF quando o valor não contiver 11
 
     return false;
 })
+
+test("Deve lançar um erro de valisação de CPF quando todos os dífitos forem iguais", () => {
+    const cpfValidator = new CpfValidator();
+
+    try {
+        cpfValidator.isValid("11111111111");
+    } catch (error) {
+        if (
+            error instanceof CpfValidationError &&
+            error.message === "O CPF não pode conter todos os dígitos iguais"
+        ) {
+            return true;
+        }
+    }
+
+    return false;
+})
