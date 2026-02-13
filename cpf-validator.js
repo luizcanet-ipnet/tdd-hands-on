@@ -10,6 +10,7 @@ export default class CpfValidator {
         this.#isString(cpf);
         this.#has11Digits(cpf);
         this.#hasNotAllDigitsEqual(cpf);
+        this.#hasValidFirstDigit(cpf);
 
         return true;
     }
@@ -34,5 +35,15 @@ export default class CpfValidator {
         }
 
         throw new CpfValidationError("O CPF não pode conter todos os dígitos iguais");
+    }
+
+    #hasValidFirstDigit(cpf) {
+        const rest = Number(cpf[0]) + Number(cpf[1]) + Number(cpf[2]) + Number(cpf[3]) + Number(cpf[4]) + Number(cpf[5]) + Number(cpf[6]) + Number(cpf[7]) + Number(cpf[8]) % 11;
+
+        if ((rest === 0 || rest === 1) && Number(cpf[9]) !== 0) {
+            throw new CpfValidationError("O primeiro dígito verificador é inválido");
+        } else if (Number(cpf[9]) !== 11 - rest) {
+            throw new CpfValidationError("O primeiro dígito verificador é inválido");
+        }
     }
 }

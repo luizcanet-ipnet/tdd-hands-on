@@ -51,3 +51,20 @@ test("Deve lançar um erro de valisação de CPF quando todos os dífitos forem 
 
     return false;
 })
+
+test("Deve lançar um erro de validação quando o primeiro digito verificador for inválido", () => {
+    const cpfValidator = new CpfValidator();
+
+    try {
+        cpfValidator.isValid("45678912304");
+    } catch (error) {
+        if (
+            error instanceof CpfValidationError &&
+            error.message === "O primeiro dígito verificador é inválido"
+        ) {
+            return true;
+        }
+    }
+
+    return false;
+})
